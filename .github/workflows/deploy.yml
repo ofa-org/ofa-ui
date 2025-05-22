@@ -18,18 +18,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: 'pnpm'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
+      - name: Install pnpm
+        run: npm install -g pnpm@9
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm test # 建议统一使用 pnpm 作为包管理器
+        run: npm run test
 
   build:
     name: Build docs
@@ -44,32 +41,26 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: 'pnpm'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
+      - name: Install pnpm
+        run: npm install -g pnpm@9
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build docs
-        run: pnpm docs:build
+        run: npm run docs:build
 
       - name: Upload docs
         uses: actions/upload-artifact@v3
         with:
           name: docs
           path: ./packages/docs/.vitepress/dist
-          retention-days: 5
 
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      contents: write # 确保有写入权限
     steps:
       - name: Download docs
         uses: actions/download-artifact@v3
@@ -79,5 +70,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # 使用内置的 GITHUB_TOKEN
+          github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: .
