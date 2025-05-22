@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'OFA-UI',
   description: 'VUE3组件库',
+  base: '/ofa-ui/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
