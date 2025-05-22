@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --filter @ofa-ui/play dev"
+    "dev": "pnpm --filter @ofa-ui/play dev",
+    "docs:dev": "pnpm --filter @ofa-ui/docs dev",
+    "docs:build": "pnpm --filter @ofa-ui/docs build",
+    "docs:preview": "pnpm --filter @ofa-ui/docs preview"
   },
   "keywords": [],
   "author": "",
