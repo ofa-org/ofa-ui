@@ -1,10 +1,8 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div>
-    <ofa-button>按钮</ofa-button>
+    <ofa-button primary>按钮2</ofa-button>
   </div>
 </template>
 
