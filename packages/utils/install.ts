@@ -1,5 +1,5 @@
 import type { App, Plugin } from 'vue'
-import { each } from 'lodash-es'
+import { each } from 'lodash'
 
 type SFCWithInstall<T> = T & Plugin
 

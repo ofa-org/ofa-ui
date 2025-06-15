@@ -1,15 +1,42 @@
 {
   "name": "ofa-ui",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "ofa-ui 组件库",
+  "main": "./dist/umd/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.js",
+      "require": "./dist/umd/index.js",
+      "types": "./dist/types/core/index.d.ts"
+    },
+    "./dist/": {
+      "import": "./dist/",
+      "require": "./dist/"
+    }
+  },
+  "sideEffects": [
+    "./dist/index.css"
+  ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:umd": "vite build --config vite.umd.config.ts",
+    "build:es": "vite build --config vite.es.config.ts",
+    "build": "run-s build-only move-style",
+    "build-only": "run-p build:umd build:es",
+    "move-style": "move-file dist/es/index.css dist/index.css"
   },
   "devDependencies": {
-    "@ofa-ui/components": "workspace:*"
+    "@ofa-ui/components": "workspace:*",
+    "vite-plugin-dts": "^3.9.1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "peerDependencies": {
+    "vue": "^3.4.19"
+  }
 }
