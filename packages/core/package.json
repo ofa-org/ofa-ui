@@ -1,6 +1,6 @@
 {
   "name": "ofa-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ofa-ui 组件库",
   "main": "./dist/umd/index.js",
   "module": "./dist/es/index.js",
