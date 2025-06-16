@@ -25,9 +25,11 @@
   "scripts": {
     "build:umd": "vite build --config vite.umd.config.ts",
     "build:es": "vite build --config vite.es.config.ts",
-    "build": "run-s build-only move-style",
+    "build": "run-s clean build-only move-style",
     "build-only": "run-p build:umd build:es",
-    "move-style": "move-file dist/es/index.css dist/index.css"
+    "move-style": "move-file dist/es/index.css dist/index.css",
+    "clean": "rimraf dist",
+    "release": "release-it"
   },
   "devDependencies": {
     "@ofa-ui/components": "workspace:*",

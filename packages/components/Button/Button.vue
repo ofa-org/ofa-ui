@@ -24,18 +24,18 @@
   </button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineOptions({
   name: 'OfaButton',
 })
 
-import { defineProps, defineEmits, computed } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps({
   type: {
     type: String,
     default: 'default',
-    validator: (value) =>
+    validator: (value: string) =>
       ['primary', 'success', 'warning', 'danger', 'info', 'default'].includes(
         value
       ),
@@ -43,7 +43,8 @@ const props = defineProps({
   size: {
     type: String,
     default: 'medium',
-    validator: (value) => ['large', 'medium', 'small', 'mini'].includes(value),
+    validator: (value: string) =>
+      ['large', 'medium', 'small', 'mini'].includes(value),
   },
   disabled: {
     type: Boolean,
@@ -77,7 +78,7 @@ const props = defineProps({
 
 const emits = defineEmits(['click'])
 
-const handleClick = (event) => {
+const handleClick = (event: Event) => {
   if (!props.disabled && !props.loading) {
     emits('click', event)
   }
