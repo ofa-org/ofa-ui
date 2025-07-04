@@ -14,7 +14,8 @@
     "./dist/": {
       "import": "./dist/",
       "require": "./dist/"
-    }
+    },
+    "./*": "./*"
   },
   "sideEffects": [
     "./dist/index.css"
