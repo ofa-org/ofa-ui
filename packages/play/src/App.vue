@@ -1,8 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const mdText = `# Hello World
+This is a **Markdown** message.
+`
+</script>
 
 <template>
   <div>
-    <ofa-button primary>按钮2</ofa-button>
+    <ofa-message :content="mdText"></ofa-message>
   </div>
 </template>
 

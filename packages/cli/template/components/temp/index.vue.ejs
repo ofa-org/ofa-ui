@@ -1,0 +1,16 @@
+<template>
+  <div :class="[ns.b()]">
+    <%= name %>
+  </div>
+</template>
+
+<script setup lang="ts">
+defineOptions({
+  name: 'Ofa<%= name %>',
+})
+import { useNamespace } from '@ofa-ui/hooks'
+const ns = useNamespace('<%=nameLower %>')
+
+</script>
+
+<style scoped lang="scss"></style>

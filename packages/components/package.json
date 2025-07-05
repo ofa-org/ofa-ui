@@ -11,9 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "async-validator": "^4.2.5"
+    "async-validator": "^4.2.5",
+    "markdown-it": "^14.1.0"
   },
   "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
     "@vitest/coverage-v8": "^3.2.3",
     "@vue/test-utils": "^2.4.5",
     "jsdom": "^24.0.0"

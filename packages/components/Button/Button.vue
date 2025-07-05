@@ -1,9 +1,9 @@
 <template>
   <button
     :class="[
-      'el-button',
-      type ? `el-button--${type}` : 'el-button--default',
-      size ? `el-button--${size}` : 'el-button--medium',
+      ns.b(),
+      type ? ns.m(type) : ns.m('default'),
+      size ? ns.m(size) : ns.m('medium'),
       { 'is-disabled': disabled },
       { 'is-loading': loading },
       { 'is-plain': plain },
@@ -30,6 +30,9 @@ defineOptions({
 })
 
 import { defineProps, defineEmits } from 'vue'
+
+import { useNamespace } from '@ofa-ui/hooks'
+const ns = useNamespace('button')
 
 const props = defineProps({
   type: {
@@ -84,7 +87,3 @@ const handleClick = (event: Event) => {
   }
 }
 </script>
-
-<style scoped>
-@import './Button.css';
-</style>

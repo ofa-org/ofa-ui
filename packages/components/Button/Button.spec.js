@@ -13,9 +13,9 @@ describe('Button Component', () => {
         wrapper = mount(Button)
         expect(wrapper.find('button').exists()).toBe(true)
         expect(wrapper.find('button').text()).toBe('')
-        expect(wrapper.find('button').classes()).toContain('el-button')
-        expect(wrapper.find('button').classes()).toContain('el-button--default')
-        expect(wrapper.find('button').classes()).toContain('el-button--medium')
+        expect(wrapper.find('button').classes()).toContain('ofa-button')
+        expect(wrapper.find('button').classes()).toContain('ofa-button--default')
+        expect(wrapper.find('button').classes()).toContain('ofa-button--medium')
     })
 
     // 文本内容测试
@@ -35,7 +35,7 @@ describe('Button Component', () => {
             wrapper = mount(Button, {
                 props: { type }
             })
-            expect(wrapper.find('button').classes()).toContain(`el-button--${type}`)
+            expect(wrapper.find('button').classes()).toContain(`ofa-button--${type}`)
         })
     })
 
@@ -46,7 +46,7 @@ describe('Button Component', () => {
             wrapper = mount(Button, {
                 props: { size }
             })
-            expect(wrapper.find('button').classes()).toContain(`el-button--${size}`)
+            expect(wrapper.find('button').classes()).toContain(`ofa-button--${size}`)
         })
     })
 
@@ -71,9 +71,9 @@ describe('Button Component', () => {
     // 图标测试
     it('8 renders icon', () => {
         wrapper = mount(Button, {
-            props: { icon: 'el-icon-search' }
+            props: { icon: 'ofa-icon-search' }
         })
-        expect(wrapper.find('.el-icon-search').exists()).toBe(true)
+        expect(wrapper.find('.ofa-icon-search').exists()).toBe(true)
     })
 
     // 点击事件测试

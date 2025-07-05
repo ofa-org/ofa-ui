@@ -1,0 +1,9 @@
+@use './mixins/mixins.scss' as *;
+
+@include b(message) {
+  background-color: #f4f4f4;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 4px;
+}

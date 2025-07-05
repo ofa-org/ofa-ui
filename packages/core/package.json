@@ -41,5 +41,8 @@
   "license": "ISC",
   "peerDependencies": {
     "vue": "^3.4.19"
+  },
+  "dependencies": {
+    "markdown-it": "^14.1.0"
   }
 }
