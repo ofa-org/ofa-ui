@@ -1,20 +1,11 @@
 {
   "name": "ofa-cli",
-  "version": "1.2.1",
+  "version": "0.0.1",
   "description": "组件库开发脚手架工具",
   "bin": {
     "ofa-cli": "./bin/vue-create.js"
   },
-  "scripts": {},
-  "keywords": [
-    "vue",
-    "cli",
-    "scaffolding",
-    "ejs",
-    "esm"
-  ],
   "type": "module",
-  "author": "Your Name",
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.4.1",
