@@ -1,4 +1,0 @@
-import Container from './index.vue'
-import './style'
-import { withInstall } from '@ofa-ui/utils'
-export const OfaMessage = withInstall(Container)
