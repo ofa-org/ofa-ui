@@ -11,7 +11,8 @@
     "test": "pnpm --filter @ofa-ui/components test",
     "build:umd": "pnpm --filter ofa-ui build:umd",
     "build:es": "pnpm --filter ofa-ui build:es",
-    "build": "pnpm --filter ofa-ui build"
+    "build": "pnpm --filter ofa-ui build",
+    "publish": "pnpm --filter ofa-ui release"
   },
   "keywords": [],
   "author": "",
