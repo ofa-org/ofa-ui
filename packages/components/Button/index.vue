@@ -30,8 +30,9 @@ defineOptions({
 })
 
 import { defineProps, defineEmits } from 'vue'
-
 import { useNamespace } from '@ofa-ui/hooks'
+import '@ofa-ui/theme/src/Button.scss'
+
 const ns = useNamespace('button')
 
 const props = defineProps({

@@ -1,7 +1,13 @@
-import { makeInstaller } from '@ofa-ui/utils'
-import components from './components'
 import '@ofa-ui/theme/index.css'
-const installer = makeInstaller(components)
-
 export * from '@ofa-ui/components'
-export default installer
+
+import components from '@ofa-ui/components'
+import type { App, Plugin } from 'vue'
+
+export default {
+  install(app: App) {
+    components.forEach((component) => {
+      app.component(component.name!, component)
+    })
+  },
+} as Plugin

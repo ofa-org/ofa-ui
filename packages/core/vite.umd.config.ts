@@ -1,8 +1,31 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { compression } from 'vite-plugin-compression2'
+import hooks from './hooksPlugin'
+import { readFile } from 'fs'
+import { defer, delay } from 'lodash'
+import shell from 'shelljs'
+
+const TRY_MOVE_STYLES_DELAY = 750 as const
+function moveStyles() {
+  readFile('./dist/umd/index.css.gz', (err) => {
+    if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY)
+    defer(() => shell.cp('./dist/umd/index.css', './dist/index.css'))
+  })
+}
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    compression({
+      include: /.(js|css)$/i,
+      algorithms: ['gzip'], // ['gzip', 'brotliCompress']
+    }),
+    hooks({
+      rmFiles: ['./dist'],
+      afterBuild: moveStyles,
+    }),
+  ],
   build: {
     outDir: 'dist/umd', // 输出目录
     lib: {

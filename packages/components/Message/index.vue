@@ -9,6 +9,7 @@ defineOptions({
 import MarkdownIt from 'markdown-it'
 import Typewriter from '@ofa-ui/utils/typewriter'
 import { computed, ref } from 'vue'
+import '@ofa-ui/theme/src/Message.scss'
 
 import { useNamespace } from '@ofa-ui/hooks'
 const ns = useNamespace('message')

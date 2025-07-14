@@ -1,3 +1,4 @@
-// index.ts
-export * from './Button/index'
-export * from './Message/index'
+import Buton from './Button/index.vue'
+import Message from './Message/index.vue'
+
+export default [Buton, Message]
