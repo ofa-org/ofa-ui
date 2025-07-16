@@ -9,7 +9,7 @@ defineOptions({
   name: 'OfaConfigProvider',
 })
 import { useNamespace } from '@ofa-ui/hooks'
-const ns = useNamespace('configprovider')
+const ns = useNamespace('config-provider')
 
 </script>
 

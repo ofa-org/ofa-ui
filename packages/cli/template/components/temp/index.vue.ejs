@@ -1,15 +1,15 @@
 <template>
   <div :class="[ns.b()]">
-    <%= name %>
+    <%= componentName %>
   </div>
 </template>
 
 <script setup lang="ts">
 defineOptions({
-  name: 'Ofa<%= name %>',
+  name: 'Ofa<%= componentName %>',
 })
 import { useNamespace } from '@ofa-ui/hooks'
-const ns = useNamespace('<%=nameLower %>')
+const ns = useNamespace('<%= name %>')
 
 </script>
 

@@ -78,9 +78,9 @@ async function createComponent ({ componentName, dir }) {
   await fs.ensureDir(targetDir)
 
   const templateData = {
-    name: componentName,
+    componentName:toPascalCase(componentName) ,
     // 小写
-    nameLower: componentName.toLowerCase(),
+    name: componentName,
   }
 
   await renderTemplateFiles(templateDir, targetDir, templateData)
@@ -98,9 +98,8 @@ async function renderTemplateFiles (src, dest, data) {
     if (newFileName === 'index.vue.ejs') {
       newFileName = `${templateData.name}.vue`
     }
-
+    
     const destPath = join(dest, newFileName)
-
     if (entry.isDirectory()) {
       await fs.ensureDir(destPath)
       await renderTemplateFiles(srcPath, destPath, data)
@@ -131,3 +130,4 @@ main().catch((err) => {
   console.error('程序执行出错:', err)
   process.exit(1)
 })
+
