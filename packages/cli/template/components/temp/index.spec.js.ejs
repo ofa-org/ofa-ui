@@ -1,10 +1,8 @@
-import { describe, it, expect, } from 'vitest'
-import { mount } from '@vue/test-utils'
-import <%= name %> from './<%= name %>.vue'
+import { describe, it, expect } from 'vitest'
+import <%= name %> from './index.vue'
 
-        describe('<%= name %> Component', () => {
-            let wrapper
-            it('1 should have the correct name', () => {
-            expect(<%= name %>.name).toBe('Ofa<%= name %>')
-                    })
-                    })
+describe('<%= name %> Component', () => {
+  it('1 should have the correct name', () => {
+    expect(<%= name %>.name).toBe('Ofa<%= name %>')
+  })
+})
