@@ -38,6 +38,7 @@
   "dependencies": {
     "@ofa-ui/hooks": "workspace:*",
     "@ofa-ui/theme": "workspace:*",
+    "@ofa-ui/locale": "workspace:*",
     "@ofa-ui/utils": "workspace:*",
     "@types/shelljs": "^0.8.17",
     "lodash": "^4.17.21",
