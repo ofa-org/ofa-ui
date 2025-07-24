@@ -23,6 +23,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
+    "typings/env.d.ts",
     "packages/core/index.ts",
     "packages/components/index.ts",
     "packages/components/**/*.ts",

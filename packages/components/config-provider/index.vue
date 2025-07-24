@@ -7,7 +7,7 @@ defineOptions({
   name: 'OfaConfigProvider',
 })
 import { provideGlobalConfig } from './hooks/use-global-config'
-import type { ConfigProviderProps } from './props'
+import type { ConfigProviderProps } from './types'
 const props = defineProps<ConfigProviderProps>()
 const config = provideGlobalConfig(props)
 </script>

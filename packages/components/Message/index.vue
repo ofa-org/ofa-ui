@@ -15,16 +15,15 @@ import '@ofa-ui/theme/src/Message.scss'
 import { useNamespace } from '@ofa-ui/hooks'
 const ns = useNamespace('message')
 import { useLocale } from '@ofa-ui/hooks'
+import type { MessageProps } from './types'
 
 const { t } = useLocale()
 
 const md: MarkdownIt = MarkdownIt()
-const props = defineProps({
-  content: {
-    type: String,
-    default: '',
-  },
+const props = withDefaults(defineProps<MessageProps>(), {
+  content: '',
 })
+
 const steamText = ref('')
 let html = computed(() => {
   return md.render(steamText.value)
