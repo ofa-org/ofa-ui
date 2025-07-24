@@ -2,7 +2,7 @@ import { computed, inject, isRef, ref, unref } from 'vue'
 import { get } from 'lodash'
 import English from '@ofa-ui/locale/lang/en'
 
-import type { InjectionKey, Ref,MaybeRef } from 'vue'
+import type { InjectionKey, Ref, MaybeRef } from 'vue'
 import type { Language } from '@ofa-ui/locale'
 
 export type TranslatorOption = Record<string, string | number>
@@ -22,17 +22,19 @@ export const translate = (
   path: string,
   option: undefined | TranslatorOption,
   locale: Language
-): string =>
-  (get(locale, path, path) as string).replace(
+): string => {
+  return (get(locale, path, path) as string).replace(
     /\{(\w+)\}/g,
     (_, key) => `${option?.[key] ?? `{${key}}`}`
   )
+}
 
 export const buildLocaleContext = (
   locale: MaybeRef<Language>
 ): LocaleContext => {
   const lang = computed(() => unref(locale).name)
   const localeRef = isRef(locale) ? locale : ref(locale)
+  console.log(`output->locale`, locale)
   return {
     lang,
     locale: localeRef,

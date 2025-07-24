@@ -1,4 +1,5 @@
-import Buton from './Button/index.vue'
-import Message from './Message/index.vue'
+import Buton from './button/index.vue'
+import Message from './message/index.vue'
+import ConfigProvider from './config-provider/index.vue'
 
-export default [Buton, Message]
+export default [Buton, Message, ConfigProvider]

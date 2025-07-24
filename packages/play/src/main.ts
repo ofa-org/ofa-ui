@@ -1,6 +1,10 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import OfaUi from 'ofa-ui/index.ts'
+import OfaUi, { ja } from 'ofa-ui'
 console.log('ofa-ui', OfaUi)
-createApp(App).use(OfaUi).mount('#app')
+createApp(App)
+  .use(OfaUi, {
+    locale: ja,
+  })
+  .mount('#app')

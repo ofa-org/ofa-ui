@@ -28,6 +28,7 @@
     "packages/components/**/*.ts",
     "packages/components/**/*.vue",
     "packages/hooks/**/*.ts",
+    "packages/locale/**/*.ts",
     "packages/utils/**/*.ts",
     "packages/**/*.vue"
   ],
