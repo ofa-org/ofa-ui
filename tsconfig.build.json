@@ -1,6 +1,7 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
+    "types": ["node"],
     "target": "ES2020",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -23,7 +24,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "typings/env.d.ts",
     "packages/core/index.ts",
     "packages/components/index.ts",
     "packages/components/**/*.ts",
@@ -31,7 +31,8 @@
     "packages/hooks/**/*.ts",
     "packages/locale/**/*.ts",
     "packages/utils/**/*.ts",
-    "packages/**/*.vue"
+    "packages/**/*.vue",
+    "typings/env.d.ts"
   ],
   "exclude": ["packages/components/vitest.config.ts"]
 }

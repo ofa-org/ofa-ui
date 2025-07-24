@@ -2,7 +2,7 @@ import { computed, getCurrentInstance, inject, provide, ref, unref } from 'vue'
 import { localeContextKey } from '@ofa-ui/hooks'
 import { configProviderContextKey } from '../constants'
 
-import type { App, Ref, MaybeRef } from 'vue'
+import type { App, Ref, MaybeRef, InjectionKey } from 'vue'
 import type { ConfigProviderContext } from '../constants'
 import { debugWarn } from '@ofa-ui/utils'
 import { merge } from 'lodash'
@@ -53,8 +53,11 @@ export const provideGlobalConfig = (
     if (!oldConfig?.value) return cfg
     return merge(oldConfig.value, cfg)
   })
-  provideFn(configProviderContextKey, context)
-  provideFn(
+  ;(provideFn as <T>(key: InjectionKey<T> | string | number, value: T) => void)(
+    configProviderContextKey,
+    context
+  )
+  ;(provideFn as <T>(key: InjectionKey<T> | string | number, value: T) => void)(
     localeContextKey,
     computed(() => context.value.locale)
   )

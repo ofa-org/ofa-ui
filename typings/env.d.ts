@@ -5,3 +5,18 @@ declare module '@vue/runtime-core' {
     [INSTALLED_KEY]?: boolean
   }
 }
+
+declare global {
+  const process: {
+    env: {
+      NODE_ENV: string
+    }
+  }
+
+  namespace JSX {
+    interface IntrinsicAttributes {
+      class?: unknown
+      style?: unknown
+    }
+  }
+}
