@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3"
+  },
+  "dependencies": {
+    "unplugin-vue-components": "^29.0.0"
   }
 }

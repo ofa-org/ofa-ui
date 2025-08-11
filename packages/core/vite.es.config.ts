@@ -16,6 +16,16 @@ function moveStyles() {
   })
 }
 
+function moveFiles() {
+  readdir('./resolvers', (err) => {
+    if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY)
+    defer(() => {
+      // 添加移动 resolvers 的逻辑
+      shell.cp('-R', './resolvers', './dist/')
+    })
+  })
+}
+
 export default defineConfig({
   plugins: [
     vue(),
@@ -26,6 +36,10 @@ export default defineConfig({
     hooks({
       rmFiles: ['./dist/es', './dist/theme', './dist/types'],
       afterBuild: moveStyles,
+    }),
+    hooks({
+      rmFiles: [],
+      afterBuild: moveFiles,
     }),
   ],
   build: {

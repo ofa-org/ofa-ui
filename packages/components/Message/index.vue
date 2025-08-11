@@ -1,6 +1,5 @@
 <template>
   <div v-html="html" :class="[ns.b()]"></div>
-  <div>{{ t('el.colorpicker.clear') }}</div>
 </template>
 
 <script setup lang="ts">
@@ -14,10 +13,10 @@ import '@ofa-ui/theme/src/Message.scss'
 
 import { useNamespace } from '@ofa-ui/hooks'
 const ns = useNamespace('message')
-import { useLocale } from '@ofa-ui/hooks'
+// import { useLocale } from '@ofa-ui/hooks'
 import type { MessageProps } from './types'
 
-const { t } = useLocale()
+// const { t } = useLocale()
 
 const md: MarkdownIt = MarkdownIt()
 const props = withDefaults(defineProps<MessageProps>(), {

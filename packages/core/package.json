@@ -15,13 +15,15 @@
       "import": "./dist/",
       "require": "./dist/"
     },
+    "./resolver": "./dist/resolvers/ofa-resolver.js",
     "./*": "./*"
   },
   "sideEffects": [
     "./dist/index.css"
   ],
   "files": [
-    "dist"
+    "dist",
+    "resolvers/ofa-resolver.ts"
   ],
   "scripts": {
     "build:umd": "vite build --config vite.umd.config.ts",

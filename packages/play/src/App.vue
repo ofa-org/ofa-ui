@@ -6,7 +6,7 @@ This is a **Markdown** message.
 
 <template>
   <div>
-    <ofa-message :content="mdText"></ofa-message>
+    <OfaMessage :content="mdText"></OfaMessage>
   </div>
 </template>
 
