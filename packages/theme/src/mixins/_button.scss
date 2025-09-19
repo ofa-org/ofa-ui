@@ -91,10 +91,16 @@
   $font-size,
   $border-radius
 ) {
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  border-radius: $border-radius;
-  &.is-round {
+  // 使用 & {} 包装属性声明以明确采用新行为
+  & {
+    // 属性声明
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    border-radius: $border-radius;
+  }
+  
+  // 嵌套规则分离
+  @at-root &.is-round {
     padding: $padding-vertical $padding-horizontal;
   }
 }

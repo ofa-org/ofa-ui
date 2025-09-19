@@ -2,7 +2,8 @@
 @forward 'function';
 @use 'config' as *;
 @use 'function' as *;
-
+// 声明全局变量以避免 !global 警告
+$B: null; // 添加此行
 // 定义 Block
 @mixin b($block) {
   $B: $namespace + '-' + $block !global;
