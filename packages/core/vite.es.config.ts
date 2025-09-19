@@ -12,6 +12,7 @@ const TRY_MOVE_STYLES_DELAY = 750 as const
 function moveStyles() {
   readdir('./dist/es/theme', (err) => {
     if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY)
+    defer(() => shell.mv('./dist/es/theme/index.css', './dist'))
     defer(() => shell.mv('./dist/es/theme', './dist'))
   })
 }
@@ -52,7 +53,7 @@ export default defineConfig({
         if (entryName === 'ofa-resolver') {
           return 'resolvers/ofa-resolver.mjs'
         }
-        return 'index.js'
+        return 'index.mjs'
       }, // 输出文件名
       formats: ['es'], // 输出格式
     },
@@ -67,6 +68,10 @@ export default defineConfig({
             return 'index.css' // CSS 文件放在 style 目录下
           }
           if (assetInfo.type === 'asset') {
+            return 'theme/[name][extname]'
+          }
+          // 处理主题相关的 CSS 文件
+          if (assetInfo.name && assetInfo.name.includes('theme')) {
             return 'theme/[name][extname]'
           }
           return assetInfo.name as string // 其他资源文件名格式

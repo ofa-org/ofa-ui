@@ -9,19 +9,16 @@ defineOptions({
 import MarkdownIt from 'markdown-it'
 import Typewriter from '@ofa-ui/utils/typewriter'
 import { computed, ref } from 'vue'
-import '@ofa-ui/theme/src/Message.scss'
 
 import { useNamespace } from '@ofa-ui/hooks'
 const ns = useNamespace('message')
 // import { useLocale } from '@ofa-ui/hooks'
-import type { MessageProps } from './types'
+import { messageProps } from './index'
 
 // const { t } = useLocale()
 
 const md: MarkdownIt = MarkdownIt()
-const props = withDefaults(defineProps<MessageProps>(), {
-  content: '',
-})
+const props = defineProps(messageProps)
 
 const steamText = ref('')
 let html = computed(() => {

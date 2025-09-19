@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    OfaButton: typeof import('ofa-ui')['OfaButton']
     OfaMessage: typeof import('ofa-ui')['OfaMessage']
   }
 }

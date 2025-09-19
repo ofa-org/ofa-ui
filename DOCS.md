@@ -168,6 +168,8 @@ console.log(chalk.gray(`请到 ${targetDir} 目录下查看组件`))
 
 ### 组件类型文件声明提示
 
+<!-- unplugin-vue-components 生成 components.d 配个 Volar -->
+
 ## 测试/调试
 
 ### TDD开发模式

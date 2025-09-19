@@ -2,12 +2,13 @@
   "name": "ofa-ui",
   "version": "1.0.2",
   "description": "ofa-ui 组件库",
-  "main": "./dist/umd/index.js",
+  "main": "./dist/umd/index.mjs",
   "module": "./dist/es/index.mjs",
   "types": "./dist/es/index.d.ts",
+  "style": "dist/index.css",
   "exports": {
     ".": {
-      "import": "./dist/es/index.js",
+      "import": "./dist/es/index.mjs",
       "require": "./dist/umd/index.js",
       "types": "./dist/types/core/index.d.ts"
     },
@@ -19,7 +20,7 @@
     "./*": "./dist/*"
   },
   "sideEffects": [
-    "./dist/index.css"
+    "*/style/*"
   ],
   "files": [
     "dist",

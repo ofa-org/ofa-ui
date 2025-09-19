@@ -1,20 +1,17 @@
 @forward 'config';
+@forward 'function';
 @use 'config' as *;
-@use 'sass:string';
-@use 'sass:map';
+@use 'function' as *;
 
-$B: null;
-$E: null;
-
-// BEM
+// 定义 Block
 @mixin b($block) {
-  $B: $namespace + $common-separator + $block !global;
+  $B: $namespace + '-' + $block !global;
 
   .#{$B} {
     @content;
   }
 }
-
+// 定义 Element
 @mixin e($element) {
   $E: $element !global;
   $selector: &;
@@ -44,7 +41,7 @@ $E: null;
     }
   }
 }
-
+// 定义修改器
 @mixin m($modifier) {
   $selector: &;
   $currentSelector: '';
@@ -58,6 +55,15 @@ $E: null;
 
   @at-root {
     #{$currentSelector} {
+      @content;
+    }
+  }
+}
+
+// 状态 is-checked
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
       @content;
     }
   }
