@@ -7,7 +7,7 @@
   "types": "./dist/es/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/es/index.mjs",
+      "import": "./dist/es/index.js",
       "require": "./dist/umd/index.js",
       "types": "./dist/types/core/index.d.ts"
     },
@@ -15,8 +15,8 @@
       "import": "./dist/",
       "require": "./dist/"
     },
-    "./resolver": "./dist/resolvers/ofa-resolver.js",
-    "./*": "./*"
+    "./resolver": "./dist/resolvers/ofa-resolver.mjs",
+    "./*": "./dist/*"
   },
   "sideEffects": [
     "./dist/index.css"

@@ -17,11 +17,11 @@ function moveStyles() {
 }
 
 function moveFiles() {
-  readdir('./resolvers', (err) => {
-    if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY)
+  readdir('./dist/es/resolvers', (err) => {
+    if (err) return delay(moveFiles, TRY_MOVE_STYLES_DELAY)
     defer(() => {
       // 添加移动 resolvers 的逻辑
-      shell.cp('-R', './resolvers', './dist/')
+      shell.mv('./dist/es/resolvers', './dist/')
     })
   })
 }
@@ -46,15 +46,20 @@ export default defineConfig({
     // minify: false, // 禁用压缩
     outDir: 'dist/es', // 输出目录
     lib: {
-      entry: './index.ts', // 入口文件
+      entry: ['./index.ts', './resolvers/ofa-resolver.ts'], // 入口文件，包含resolver
       name: 'OfaUi', // UMD 模块名称
-      fileName: 'index', // 输出文件名
+      fileName: (format, entryName) => {
+        if (entryName === 'ofa-resolver') {
+          return 'resolvers/ofa-resolver.mjs'
+        }
+        return 'index.js'
+      }, // 输出文件名
       formats: ['es'], // 输出格式
     },
     cssCodeSplit: true,
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
-      external: ['vue'],
+      external: ['vue', 'unplugin-vue-components'],
       output: {
         assetFileNames: (assetInfo) => {
           // 自定义资源文件名
